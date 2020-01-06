@@ -1,3 +1,5 @@
+"""亨元模式"""
+
 import random
 from enum import Enum
 

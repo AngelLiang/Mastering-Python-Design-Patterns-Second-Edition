@@ -1,3 +1,22 @@
+"""MVC模式
+
+>>> main()
+Which quote number would you like to see? 2
+And the quote is: "Behind a successful man is an exhausted woman."
+Which quote number would you like to see? 4
+And the quote is: "Facts are stubborn things."
+Which quote number would you like to see? 1
+And the quote is: "As I said before, I never repeat myself."
+Which quote number would you like to see? 6
+And the quote is: "Not found!"
+Which quote number would you like to see? 3
+And the quote is: "Black holes really suck..."
+Which quote number would you like to see? 0
+And the quote is: "A man is not complete until he is married. Then he is finished."
+Which quote number would you like to see?
+
+"""
+
 quotes = (
     'A man is not complete until he is married. Then he is finished.',
     'As I said before, I never repeat myself.',
@@ -17,13 +36,17 @@ class QuoteModel:
 
 
 class QuoteTerminalView:
+
     def show(self, quote):
+        """ print a quote on the screen. """
         print(f'And the quote is: "{quote}"')
 
     def error(self, msg):
+        """ used to print an error message on the screen. """
         print(f'Error: {msg}')
 
     def select_quote(self):
+        """ reads the user's selection. """
         return input('Which quote number would you like to see? ')
 
 
@@ -33,6 +56,10 @@ class QuoteTerminalController:
         self.view = QuoteTerminalView()
 
     def run(self):
+        """
+        The run() method validates the quoted index given by the user,
+        gets the quote from the model, and passes it back to the view
+        """
         valid_input = False
         while not valid_input:
             try:
